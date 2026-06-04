@@ -1,0 +1,707 @@
+
+        /* ---- CSS GIAO DIỆN CHÍNH ---- */
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            background-image: url('../img/bia1.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+        }
+
+        .transparent-navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            background: transparent !important;
+        }
+
+        .booking-bar-wrapper {
+            position: relative;
+            z-index: 20;
+            margin-top: -40px; 
+        }
+
+        .booking-bar {
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .booking-item {
+            flex: 1;
+            padding: 15px 20px;
+            border-right: 1px solid #eee;
+        }
+
+        .booking-item label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+        
+        .booking-item select, .booking-item input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-weight: bold;
+            color: #333;
+            background: transparent;
+        }
+
+        .btn-book-now {
+            background-color: #ff8c00; 
+            color: white;
+            border: none;
+            height: 100%;
+            padding: 0 40px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            align-self: stretch; 
+        }
+        .btn-book-now:hover {
+            background-color: #e67e00;
+            color: white;
+        }
+
+        .filter-bar {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 30px;
+        }
+        .filter-bar select {
+            border: none;
+            background: transparent;
+            font-weight: bold;
+            color: #555;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* ---- CSS THẺ PHÒNG ---- */
+        .room-card {
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+        
+        .room-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px; 
+        }
+
+        .room-img-wrapper img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.4s ease; 
+        }
+
+        .room-card:hover .room-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .room-overlay-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 15px 10px 10px 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        .room-hover-action {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .room-card:hover .room-hover-action {
+            opacity: 1;
+        }
+
+        .btn-room-book {
+            border: 1px solid white;
+            background: transparent;
+            color: white;
+            padding: 8px 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-room-book:hover {
+            background: white;
+            color: black;
+        }
+
+        .room-info {
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        .room-title {
+            color: #3b5998; 
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .room-bed-type {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* ---- CSS KHUNG CHAT ---- */
+        .chat-toggle-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-box {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 330px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            display: none; /* Ẩn mặc định */
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .chat-header {
+            background-color: #3b5998;
+            color: white;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .chat-body {
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+            background-color: #f4f6f9;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            padding: 10px 14px;
+            border-radius: 18px;
+            max-width: 85%;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .bot-message {
+            background-color: white;
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            border: 1px solid #eee;
+        }
+
+        .user-message {
+            background-color: #ff8c00;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            padding: 10px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .chat-input-area input:focus {
+            border-color: #ff8c00;
+        }
+
+        .chat-input-area button {
+            background: none;
+            border: none;
+            color: #ff8c00;
+            font-size: 20px;
+            margin-left: 10px;
+            padding: 0 5px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .chat-input-area button:hover {
+            color: #e67e00;
+        }
+
+        /* =======================================================
+   TỐI ƯU HÓA GIAO DIỆN CHO ĐIỆN THOẠI (Dưới 768px)
+   ======================================================= */
+@media (max-width: 767.98px) {
+    
+    /* 1. Thu nhỏ chiều cao ảnh to để không bị lố màn hình */
+    .main-room-img {
+        height: 280px !important; 
+    }
+
+    /* 2. Dàn ảnh nhỏ (Thumbnails) cho phép vuốt ngang mượt mà, ẩn thanh cuộn */
+    .custom-thumb-indicators {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Hỗ trợ vuốt mượt trên iPhone */
+        padding-bottom: 5px;
+        gap: 8px;
+    }
+    /* Ẩn cái thanh cuộn (scrollbar) xấu xí đi */
+    .custom-thumb-indicators::-webkit-scrollbar {
+        display: none; 
+    }
+    .custom-thumb-indicators img {
+        width: 70px;
+        height: 55px;
+        flex-shrink: 0; /* Giữ nguyên tỷ lệ, không bị ép dẹp lại */
+    }
+
+    /* 3. Chỉnh lại Thanh Đặt Phòng (Xếp dọc thay vì ngang) */
+    .booking-bar {
+        flex-direction: column;
+        border: none !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+    }
+    .booking-item {
+        width: 100%;
+        border-right: none !important; /* Bỏ gạch dọc */
+        border-bottom: 1px solid #eee; /* Thêm gạch ngang phân cách */
+    }
+
+    /* 4. Tùy chỉnh font chữ nhỏ lại cho gọn */
+    h2.fw-bold {
+        font-size: 1.4rem;
+        margin-top: 10px;
+    }
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+
+
+
+
+/* Tách nút Đặt phòng ra và ghim xuống đáy màn hình điện thoại */
+    .booking-bar > div:last-child {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1050;
+        background: white;
+        padding: 10px 15px;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid #ddd;
+    }
+    .booking-bar .btn-warning {
+        border-radius: 8px !important;
+        height: 50px !important;
+        min-height: auto !important;
+    }
+    
+    /* Đẩy phần nội dung lên một chút để không bị nút đè lên mất chữ */
+    body {
+        padding-bottom: 80px; 
+    }
+
+
+
+    /* ================= CÁC NÚT MẠNG XÃ HỘI LƠ LỬNG ================= */
+.floating-contact-buttons {
+    position: fixed;
+    bottom: 110px; /* Cách đáy màn hình một khoảng vừa đủ để nằm TRÊN nút chat (thường là 30px) */
+    right: 30px;
+    display: flex;
+    flex-direction: column; /* Xếp dọc xuống */
+    gap: 15px; /* Khoảng cách giữa các nút */
+    z-index: 1000;
+}
+
+.floating-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1); /* Phóng to nhẹ khi trỏ chuột */
+    color: white;
+}
+
+/* Đổ màu đặc trưng cho từng nền tảng */
+.btn-phone  { background-color: #28a745; } /* Xanh lá */
+.btn-fb     { background-color: #1877f2; } /* Xanh Facebook */
+.btn-tiktok { background-color: #000000; } /* Đen TikTok */
+.btn-zalo { 
+    background-color: #0068ff; /* Xanh Zalo */
+    font-size: 14px; 
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Hiệu ứng khi trỏ chuột vào danh sách số điện thoại */
+.floating-contact-buttons .dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #ff8c00 !important;
+    transition: all 0.2s ease;
+}
+
+
+
+/* =======================================================
+   TỐI ƯU HÓA TRANG CHỦ CHO ĐIỆN THOẠI (Dưới 768px)
+   ======================================================= */
+@media (max-width: 767.98px) {
+    /* Khắc phục lỗi Menu đè lên nhau, tạo nền đen khi mở trên điện thoại */
+    #mainNav {
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+    .navbar-nav .nav-link {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Thu nhỏ chữ lớn trang chủ */
+    .mobile-title {
+        font-size: 2.2rem !important;
+    }
+
+    /* Gập dọc Thanh Đặt Phòng */
+    .booking-bar {
+        flex-direction: column !important;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .booking-item {
+        width: 100% !important;
+        border-right: none !important;
+        border-bottom: 1px solid #eee;
+        padding: 15px !important;
+    }
+    .btn-book-now {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Thu nhỏ Khung Chat để không bị tràn ra ngoài màn hình */
+    .chat-box {
+        width: calc(100% - 40px);
+        right: 20px;
+        bottom: 90px;
+    }
+    
+    /* Thu nhỏ iframe YouTube */
+    iframe {
+        height: 220px;
+    }
+}
+/* Hiệu ứng khi lướt chuột vào các mục trong Menu Dropdown */
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+    background-color: #fff4e6; /* Nền cam rất nhạt */
+    color: #ff8c00 !important; /* Chữ màu cam đậm */
+    transition: all 0.2s ease;
+}
+
+
+
+
+ /* ================= HIỆU ỨNG MENU XỔ XUỐNG ================= */
+        .navbar-nav .dropdown-menu .dropdown-item:hover {
+            background-color: #fff4e6;
+            color: #ff8c00 !important;
+            transition: all 0.2s ease;
+        }
+
+        /* ================= TÙY CHỈNH ẢNH THUMBNAIL PHÒNG ================= */
+        .custom-thumb-indicators {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 5px;
+        }
+
+        .custom-thumb-indicators img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: 0.3s;
+            margin-right: 8px;
+        }
+
+        .custom-thumb-indicators img.active,
+        .custom-thumb-indicators img:hover {
+            opacity: 1;
+            border: 2px solid #ff8c00;
+        }
+
+        /* ================= TÙY CHỈNH CHUNG CHO THƯ VIỆN ẢNH ================= */
+        .hotel-gallery-img {
+            width: 100%;
+            height: 280px;
+            /* Chiều cao ảnh trên máy tính */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        #hotelGalleryCarouselkhac .hotel-gallery-img {
+            height: 500px;
+            /* Chiều cao lớn hơn để ảnh ghép dọc hiện rõ */
+            object-fit: contain;
+            /* KHÔNG CẮT ẢNH, thu nhỏ lại cho vừa khung */
+            background-color: #f8f9fa;
+            /* Nền xám nhạt đệm phía sau */
+        }
+
+        /* ================= RESPONSIVE TRÊN ĐIỆN THOẠI ================= */
+        @media (max-width: 768px) {
+            .hotel-gallery-img {
+                height: 150px;
+                /* Thu nhỏ lại ảnh chung trên điện thoại */
+            }
+
+            /* Thêm mới: Tối ưu riêng ảnh Cano trên điện thoại */
+            #hotelGalleryCarouselkhac .hotel-gallery-img {
+                height: 350px;
+                /* Ảnh cano dọc nên cần chiều cao lớn hơn trên điện thoại */
+            }
+        }
+
+        /* ================= THÊM MỚI: TÙY CHỈNH RIÊNG CHO ẢNH PHẦN CANO ================= */
+        #hotelGalleryCarouselCano .hotel-gallery-img {
+            height: 500px;
+            /* Chiều cao lớn hơn để ảnh ghép dọc hiện rõ */
+            object-fit: contain;
+            /* KHÔNG CẮT ẢNH, thu nhỏ lại cho vừa khung */
+            background-color: #f8f9fa;
+            /* Nền xám nhạt đệm phía sau */
+        }
+
+        /* ================= RESPONSIVE TRÊN ĐIỆN THOẠI ================= */
+        @media (max-width: 768px) {
+            .hotel-gallery-img {
+                height: 150px;
+                /* Thu nhỏ lại ảnh chung trên điện thoại */
+            }
+
+            /* Thêm mới: Tối ưu riêng ảnh Cano trên điện thoại */
+            #hotelGalleryCarouselCano .hotel-gallery-img {
+                height: 350px;
+                /* Ảnh cano dọc nên cần chiều cao lớn hơn trên điện thoại */
+            }
+        }
+
+
+
+        /* ================= TỐI ƯU HÓA CAROUSEL CHO ẢNH HỖN HỢP ================= */
+    .tour-carousel .carousel-inner {
+        height: 250px; /* Chiều cao mặc định trên điện thoại */
+        background-color: #f8f9fa; /* Màu nền xám nhạt đệm phía sau ảnh */
+    }
+
+    @media (min-width: 768px) {
+        .tour-carousel .carousel-inner {
+            height: 350px; /* Chiều cao cố định trên máy tính */
+        }
+    }
+
+    /* Target ảnh trong Carousel và căn chỉnh nằm trọn trong khung */
+    .tour-carousel .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* HIỂN THỊ TRỌN VẸN 100% ẢNH, KHÔNG CẮT */
+    }
+
+
+
+
+
+
+
+
+
+    /* ================= HIỆU ỨNG LỚP PHỦ CHO DỊCH VỤ ================= */
+    .service-img-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Hiệu ứng phóng to ảnh nhẹ nhàng khi trỏ chuột */
+    .service-img-container img {
+        transition: transform 0.4s ease;
+    }
+    .tour-card:hover .service-img-container img {
+        transform: scale(1.05);
+    }
+
+    /* Lớp phủ màu đen trong suốt, ban đầu bị ẩn (opacity: 0) */
+    .service-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6); /* Độ đen 60% */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0; 
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    /* Khi trỏ chuột vào card thì lớp phủ và nút hiện ra */
+    .tour-card:hover .service-overlay {
+        opacity: 1;
+    }
+
+    /* Hiệu ứng cho nút Xem chi tiết */
+    .btn-outline-custom {
+        color: #fff;
+        border: 2px solid #fff;
+        background: transparent;
+        transition: 0.3s;
+    }
+    .btn-outline-custom:hover {
+        background: #ff8c00;
+        border-color: #ff8c00;
+        color: #fff;
+    }
+
+
+
+    /* ================= CHỈ CĂN CHỈNH ẢNH CHO KHU VỰC DANH SÁCH 4 PHÒNG ================= */
+    
+    #room-list-container .room-img-wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 250px; /* Chiều cao mặc định cho điện thoại */
+    }
+
+    /* Khi lên màn hình máy tính (khung rộng hơn), tăng chiều cao ảnh lên 350px */
+    @media (min-width: 768px) {
+        #room-list-container .room-img-wrapper {
+            height: 350px; 
+        }
+    }
+
+    #room-list-container .room-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Lấp đầy khung mà không méo ảnh */
+        transition: transform 0.5s ease;
+    }
+
+    /* Hiệu ứng zoom nhẹ ảnh khi đưa chuột vào */
+    #room-list-container .room-card:hover .room-img-wrapper img {
+        transform: scale(1.08);
+    }

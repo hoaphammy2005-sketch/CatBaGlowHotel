@@ -1,0 +1,453 @@
+/* Thiết lập cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Sử dụng font chữ hiện đại */
+}
+
+body {
+    background-color: #f0f8fa;
+    /* Màu nền xanh dương cực nhạt, tạo cảm giác mát mẻ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Vùng chứa chính */
+.register-container {
+    background-color: #ffffff;
+    width: 850px;
+    max-width: 100%;
+    border-radius: 20px;
+    /* Bo góc lớn tạo cảm giác thân thiện */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    /* Đổ bóng nhẹ */
+    display: flex;
+    overflow: hidden;
+    /* Đảm bảo nội dung không tràn ra ngoài các góc bo */
+}
+
+/* --- Phần bên trái: Giới thiệu --- */
+.info-section {
+    flex: 1;
+    background-color: #a8dadc;
+    /* Màu xanh mờ của nước biển (pale aqua) */
+    padding: 60px;
+    color: #1d3557;
+    /* Màu chữ xanh dương đậm, độ tương phản tốt */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    /* Để đặt họa tiết san hô tuyệt đối */
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.info-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.info-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Họa tiết san hô trang trí */
+.ocean-pattern {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    /* Bạn có thể thay thế hình ảnh này bằng SVG san hô của riêng bạn */
+    background-image: url('../img/bia2.jpg');
+    background-size: cover;
+    opacity: 0.3;
+    /* Làm mờ để không gây rối mắt */
+}
+
+/* --- Phần bên phải: Biểu mẫu --- */
+.form-section {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+}
+
+/* Liên kết quay về */
+.back-home {
+    text-decoration: none;
+    color: #457b9d;
+    /* Màu xanh đại dương trung bình */
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.back-home:hover {
+    color: #1d3557;
+    /* Đậm hơn khi hover */
+}
+
+.form-section h2 {
+    font-size: 2rem;
+    color: #1d3557;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+/* Kiểu dáng cho các trường nhập liệu */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1d3557;
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Icon trong ô input */
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #a8dadc;
+    /* Sử dụng màu xanh nhạt của phần info cho icon */
+    font-size: 1.1rem;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    /* Tăng padding bên trái để nhường chỗ cho icon */
+    border: 1px solid #e0f0f5;
+    /* Viền màu xanh rất nhạt */
+    border-radius: 10px;
+    /* Bo góc nhẹ cho ô input */
+    background-color: #fbfdfe;
+    /* Nền ô input gần như trắng */
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #457b9d;
+    /* Màu viền khi focus */
+    box-shadow: 0 0 0 3px rgba(69, 123, 157, 0.1);
+    /* Hiệu ứng shadow nhẹ màu xanh */
+}
+
+/* Placeholder màu xanh mờ */
+.input-wrapper input::placeholder {
+    color: #c0dfe2;
+}
+
+/* Nút Đăng ký */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #1d3557;
+    /* Màu xanh navy đậm, tạo cảm giác tin cậy */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 20px;
+}
+
+.btn-submit:hover {
+    background-color: #152a45;
+    /* Đậm hơn khi hover */
+}
+
+.btn-submit:active {
+    transform: translateY(1px);
+    /* Hiệu ứng nhấn nút */
+}
+
+/* Liên kết đăng nhập ở dưới cùng */
+.login-link {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.login-link a {
+    color: #457b9d;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.login-link a:hover {
+    color: #1d3557;
+    text-decoration: underline;
+}
+
+/* Responsive cho thiết bị di động */
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+        /* Chuyển sang bố cục một cột */
+        width: 100%;
+    }
+
+    .info-section,
+    .form-section {
+        padding: 40px;
+    }
+
+    .info-section {
+        text-align: center;
+    }
+}
+
+
+.hero-section {
+    position: relative;
+    height: 85vh;
+    background-image: url('./img/bia1.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lớp phủ đen để chữ nổi bật */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+}
+
+/* Navbar trong suốt nằm trên ảnh */
+.transparent-navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background: transparent !important;
+}
+
+
+.booking-bar-wrapper {
+    position: relative;
+    z-index: 20;
+    margin-top: -40px;
+}
+
+.booking-bar {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.booking-item {
+    flex: 1;
+    padding: 15px 20px;
+    border-right: 1px solid #eee;
+}
+
+.booking-item label {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.booking-item select,
+.booking-item input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-weight: bold;
+    color: #333;
+    background: transparent;
+}
+
+.btn-book-now {
+    background-color: #ff8c00;
+    /* Màu cam giống thiết kế */
+    color: white;
+    border: none;
+    height: 100%;
+    padding: 0 40px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    align-self: stretch;
+    /* Cao bằng thanh booking */
+}
+
+.btn-book-now:hover {
+    background-color: #e67e00;
+    color: white;
+}
+
+.filter-bar {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.filter-bar select {
+    border: none;
+    background: transparent;
+    font-weight: bold;
+    color: #555;
+    outline: none;
+    cursor: pointer;
+}
+
+/* CSS cho Thẻ Phòng (Room Card) */
+.room-card {
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+/* Bọc hình ảnh để xử lý hiệu ứng */
+.room-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    /* Tùy chọn bo góc nhẹ */
+}
+
+.room-img-wrapper img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    /* Hiệu ứng zoom nhẹ ảnh khi hover */
+}
+
+.room-card:hover .room-img-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Lớp mờ đen ở dưới đáy ảnh chứa thông số */
+.room-overlay-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 15px 10px 10px 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.9rem;
+    z-index: 1;
+}
+
+/* Lớp phủ đen và nút Đặt phòng hiện lên khi Hover */
+.room-hover-action {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.room-card:hover .room-hover-action {
+    opacity: 1;
+}
+
+.btn-room-book {
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    padding: 8px 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-room-book:hover {
+    background: white;
+    color: black;
+}
+
+/* Phần chữ bên dưới ảnh */
+.room-info {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.room-title {
+    color: #3b5998;
+    /* Màu xanh đen giống thiết kế */
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.room-bed-type {
+    color: #888;
+    font-size: 0.9rem;
+}

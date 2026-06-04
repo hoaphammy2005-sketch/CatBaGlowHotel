@@ -1,0 +1,47 @@
+/* ---- CSS CHO THANH ĐẶT PHÒNG ---- */
+.booking-bar .outline-none {
+    outline: none;
+    background: transparent;
+    color: #333;
+}
+.booking-bar .btn-warning {
+    background-color: #ff8c00; /* Màu cam đặc trưng của dự án */
+    border: none;
+}
+.booking-bar .btn-warning:hover {
+    background-color: #e67e00;
+}
+
+/* ---- CSS CHO PHẦN ẢNH PHÒNG ---- */
+.main-room-img {
+    height: 450px;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+
+/* Đưa hàng ảnh nhỏ xuống dưới cùng thay vì đè lên ảnh to */
+.custom-thumb-indicators {
+    position: relative;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow-x: auto; /* Cho phép lướt ngang nếu có quá nhiều ảnh */
+    padding-bottom: 10px;
+}
+
+/* Chỉnh kích thước cho từng ảnh nhỏ */
+.custom-thumb-indicators img {
+    width: 90px;
+    height: 70px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    opacity: 0.5; /* Mặc định hơi mờ */
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Khi người dùng trỏ chuột hoặc khi ảnh đang được chọn (active) */
+.custom-thumb-indicators img:hover,
+.custom-thumb-indicators img.active {
+    opacity: 1;
+    border: 2px solid #ff8c00; /* Viền cam làm nổi bật ảnh đang xem */
+}

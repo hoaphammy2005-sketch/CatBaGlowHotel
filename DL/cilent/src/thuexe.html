@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Thuê Xe Tay Ga - Xe Máy Điện</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+
+    <style>
+        /* Ép kích thước cố định cho ảnh ở Lịch Trình */
+        .timeline-img-wrapper {
+            height: 220px;
+            /* ĐÃ TĂNG: Từ 180px lên 220px để ảnh cao hơn */
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .timeline-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Tự động cắt phần thừa, không làm méo ảnh */
+            object-position: center;
+            /* Luôn lấy tâm điểm */
+        }
+
+        /* Chiều cao riêng cho cái Slider Mini lúc 14h00 (Giữ nguyên) */
+        .mini-slider-wrapper {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .mini-slider-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index.html">CÁT BÀ GLOW</a>
+            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto text-uppercase fw-bold" style="font-size: 0.9rem;">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tourDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                PHÒNG
+                            </a>
+                            <ul class="dropdown-menu shadow border-0 mt-2" aria-labelledby="tourDropdown"
+                                style="border-radius: 8px;">
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="deluxecobancong.html">DELUXE
+                                        CÓ
+                                        BAN CÔNG</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="deluxegiadinh.html">DELUXE GIA
+                                        ĐÌNH</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="tieuchuangiadinh.html">PHÒNG
+                                        TIÊU
+                                        CHUẨN GIA ĐÌNH LỚN</a></li>
+
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tourDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                TOUR
+                            </a>
+                              <ul class="dropdown-menu shadow border-0 mt-2" aria-labelledby="tourDropdown"
+                                style="border-radius: 8px;">
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="tausat.html">TOUR TÀU SẮT 48
+                                        CHỖ</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="tau3sao.html">TOUR TÀU 3
+                                        SAO</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="taucano.html">TOUR TÀU
+                                        CANO</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="tauduthuyen.html">TOUR DU
+                                        THUYỀN</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tourDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                TOUR ƯU ĐÃI
+                            </a>
+                            <ul class="dropdown-menu shadow border-0 mt-2" aria-labelledby="tourDropdown"
+                                style="border-radius: 8px;">
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item py-2 fw-bold text-danger" href="2ngaycombo3.html">Tour 2N1Đ
+                                        - Combo 3 Đặc Biệt(1.299K)</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="2ngaycombo2.html">Tour 2N1Đ -
+                                        Combo 2(999K)</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="2ngaycombo1.html">Tour 2N1Đ -
+                                        Combo 1(799K)</a></li>
+
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item py-2 fw-bold text-danger" href="3ngaycombo3.html">Tour 3N2Đ
+                                        - Combo 3 Đặc Biệt(1.499K)</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="3ngaycombo2.html">Tour 3N2Đ -
+                                        Combo 2(1.199K)</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="3ngaycombo1.html">Tour 3N2Đ -
+                                        Combo 1(999K)</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="thuexe.html">THUÊ XE</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Tài khoản
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2"
+                                aria-labelledby="accountDropdown" style="border-radius: 8px;">
+                                <li>
+                                    <a class="dropdown-item py-2 fw-bold text-dark" href="login.html">
+                                        <i class="fa-solid fa-right-to-bracket text-primary me-2"></i> Đăng nhập
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 fw-bold text-dark" href="register.html">
+                                        <i class="fa-solid fa-user-plus text-success me-2"></i> Đăng ký
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container mt-5 mb-5 px-3">
+        <div class="mb-4">
+            <a href="javascript:history.back()"
+                class="btn btn-light border shadow-sm rounded-circle d-inline-flex align-items-center justify-content-center"
+                style="width: 42px; height: 42px;" title="Quay lại">
+                <i class="fa-solid fa-arrow-left text-dark fs-5"></i>
+            </a>
+        </div>
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-uppercase" style="letter-spacing: 1px;">Dịch vụ thuê xe tay ga - Xe máy điện Vinfast
+            </h2>
+            <div style="width: 80px; height: 3px; background-color: #ff8c00; margin: 0 auto;"></div>
+        </div>
+
+        <div class="row align-items-center">
+
+            <div class="col-md-4 col-12 mb-4 mb-md-0 d-flex justify-content-center justify-content-md-end pe-md-4">
+                <iframe class="shadow" width="315" height="560"
+                    src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F740921935713761%2F&show_text=false&width=267&t=0"
+                    style="border:none; overflow:hidden; max-width: 100%; border-radius: 12px;" scrolling="no"
+                    frameborder="0" allowfullscreen="true"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+            </div>
+
+            <div class="col-md-8 col-12">
+                <div class="bg-white p-4 rounded shadow-sm border-start border-4"
+                    style="border-color: #ff8c00 !important;">
+
+                    <h5 class="fw-bold text-dark mb-3">
+                        <i class="fa-solid fa-location-dot text-danger me-2"></i> Địa chỉ giao nhận xe:
+                    </h5>
+                    <div class="text-muted mb-4 ps-4">
+                        <p class="mb-1"><strong>CS 1:</strong> Số 271 Núi Ngọc - Cát Bà - HP</p>
+                        <p class="mb-0"><strong>CS 2:</strong> Số 21 Lô 2 - Núi Ngọc - Cát Bà - HP</p>
+                    </div>
+
+                    <h5 class="fw-bold text-dark mb-3">
+                        <i class="fa-solid fa-motorcycle text-success me-2"></i> Thông tin dịch vụ:
+                    </h5>
+                    <div class="text-dark ps-2">
+                        <p class="mb-2">🔥 Shop đa dạng mẫu mã từ xe điện 50cc, 70cc tới xe máy AB, Vision.</p>
+                        <p class="mb-2">🔥 Xe máy điện dòng mới nhất, xe Feliz 2025 của Vinfast.</p>
+                        <p class="mb-2">🔥 Tốc độ tối đa 70km/h. Đầy pin đi được 90km, thoải mái khám phá đảo.</p>
+                        <p class="mb-2">🔥 Giao xe tận khách sạn hoặc bến tàu hoặc khách đến trực tiếp văn phòng.</p>
+                        <p class="mb-2">🔥 Giá thuê xe đã bao gồm đầy pin và mũ bảo hiểm.</p>
+                        <p class="mb-4">🔥 Thủ tục thuê xe nhanh gọn, không cần đặt cọc. Đổi xe/đổi pin miễn phí bất cứ
+                            đâu.</p>
+                    </div>
+
+                    <hr class="mb-4">
+
+                    <div class="text-dark">
+                        <p class="mb-2 fw-bold text-uppercase">Công ty TNHH Dịch vụ và Thương mại Long Hiệp</p>
+                        <div class="d-flex flex-wrap gap-4">
+                            <p class="mb-0"><i class="fa-solid fa-phone-volume text-success me-2"></i> <strong>Mr
+                                    Hiệp:</strong> 0984.854.456</p>
+                            <p class="mb-0"><i class="fa-solid fa-phone-volume text-success me-2"></i> <strong>Ms
+                                    Thoa:</strong> 0392.600.321</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <div class="container bg-white p-4 p-md-5 rounded shadow-sm mb-5">
+
+        <div class="d-flex align-items-center mb-4">
+            <div style="width: 5px; height: 30px; background-color: #ff8c00; margin-right: 15px; border-radius: 5px;">
+            </div>
+            <h3 class="fw-bold mb-0 text-uppercase">thuê xe</h3>
+        </div>
+
+        <p class="text-muted mb-4">Shop đa dạng mẫu mã từ xe điện 50cc, 70cc tới xe máy AB, Vision </p>
+        <p class="text-muted mb-4">Giá thuê xe đã bao gồm đầy pin và mũ bảo hiểm </p>
+        <p class="text-muted mb-4">Thủ tục thuê xe nhanh gọn, không cần đặt cọc. Đổi xe/đổi pin miễn phí bất cứ
+            đâ </p>
+
+        <div id="hotelGalleryCarouselCano" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="./img/thuexe/z7883932182650_4665b31c1244ca7a7504711a9635bec7.jpg"
+                                class="hotel-gallery-img" alt="Nhà hàng">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/thuexe/z7883932185513_0890e2f109d5eac1d1ea3098a52683c9.jpg"
+                                class="hotel-gallery-img" alt="Khuôn viên">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="./img/thuexe/z7883932183789_496768a75981382899b158ee44f2ba90.jpg"
+                                class="hotel-gallery-img" alt="Tiện ích khác">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/thuexe/z7883932185042_dc32d2c2a5cf9d2373e405dad5aa7174.jpg"
+                                class="hotel-gallery-img" alt="Sảnh khách sạn">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item active">
+                    <div class="row g-3">
+                        <div class="col-6">
+
+
+                            <img src="./img/thuexe/xe1.jpg" class="hotel-gallery-img" alt="Sảnh khách sạn">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/thuexe/xe2.jpg" class="hotel-gallery-img" alt="Hồ bơi">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#hotelGalleryCarouselCano"
+                data-bs-slide="prev" style="width: 5%;">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#hotelGalleryCarouselCano"
+                data-bs-slide="next" style="width: 5%;">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <div id="muc-xe-bus" style="scroll-margin-top: 100px;">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-uppercase" style="letter-spacing: 1px;">Xe Bus Hà Nội - Cát Bà và Ngược lại</h2>
+            <div style="width: 80px; height: 3px; background-color: #ff8c00; margin: 0 auto;"></div>
+        </div>
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-5 col-md-5 col-12 mb-4 mb-md-0 pe-md-4">
+                <img src="./img/xe.jpg" alt="Xe Limousine Luxury Hà Nội Cát Bà" class="shadow-lg w-100"
+                    style="border-radius: 16px; object-fit: cover; height: 420px;">
+            </div>
+
+            <div class="col-lg-7 col-md-7 col-12">
+                <div class="bg-white p-4 p-lg-5 rounded-3 border-0 position-relative"
+                    style="box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                    <div class="position-absolute top-0 start-0 h-100"
+                        style="width: 5px; background-color: #ff8c00; border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+                    </div>
+
+                    <h4 class="fw-bold mb-4" style="color: #ff8c00;">
+                        <i class="fa-solid fa-van-shuttle me-2"></i> THÔNG TIN LỊCH TRÌNH
+                    </h4>
+
+                    <div class="text-dark ps-2">
+                        <div class="d-flex mb-3 align-items-start">
+                            <div class="text-warning me-3 mt-1"><i class="fa-solid fa-ticket fs-5"></i></div>
+                            <div><strong class="text-uppercase">Giá vé:</strong> <span
+                                    class="text-danger fw-bold fs-5">320.000đ</span> /vé/chiều.</div>
+                        </div>
+                        <div class="d-flex mb-3 align-items-start">
+                            <div class="text-warning me-3 mt-1"><i class="fa-solid fa-clock fs-5"></i></div>
+                            <div><strong>Di chuyển:</strong> Xe bus 45 chỗ - tàu cao tốc 7 phút qua sông. Xe bus 45 chỗ
+                                đón trả tại ks trung tâm Cát Bà. Tổng thời gian 3,5 tiếng từ HN-CB </div>
+                        </div>
+                        <div class="d-flex mb-3 align-items-start">
+                            <div class="text-warning me-3 mt-1"><i class="fa-solid fa-map-location-dot fs-5"></i></div>
+                            <div><strong>Điểm đón:</strong> Xe Đón xung quanh phố cổ tại Hà Nội hoặc văn phòng xe tại
+                                phố cổ số 122 Trần Nhật Duật, Hàng Buồm, Hoàn Kiếm, Hà Nội. </div>
+                        </div>
+
+                        <div class="row mt-4 mb-3 g-3">
+                            <div class="col-sm-6">
+                                <div class="p-3 rounded-3"
+                                    style="background-color: #fff8f0; border: 1px solid #ffdeba;">
+                                    <h6 class="fw-bold text-dark mb-2"><i
+                                            class="fa-solid fa-location-arrow text-primary me-2"></i>Giờ chạy từ Hà Nội
+                                    </h6>
+                                    <p class="mb-0 fw-bold" style="color: #ff8c00; font-size: 1.1rem;">07:30 - 10:30 -
+                                        12.30 - 13:30</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="p-3 rounded-3"
+                                    style="background-color: #fff8f0; border: 1px solid #ffdeba;">
+                                    <h6 class="fw-bold text-dark mb-2"><i
+                                            class="fa-solid fa-location-arrow text-success me-2"></i>Giờ chạy từ Cát Bà
+                                    </h6>
+                                    <p class="mb-0 fw-bold" style="color: #ff8c00; font-size: 1.1rem;">08:00 - 12:30 -
+                                        15:30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-uppercase" style="letter-spacing: 1px;">Xe Bus Hà Nội - Cát Bà (Limousine Luxury)</h2>
+        <div style="width: 80px; height: 3px; background-color: #ff8c00; margin: 0 auto;"></div>
+    </div>
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-5 col-md-5 col-12 mb-4 mb-md-0 pe-md-4">
+            <img src="./img/xeluxxury.png" alt="Xe Limousine Luxury Hà Nội Cát Bà" class="shadow-lg w-100"
+                style="border-radius: 16px; object-fit: cover; height: 420px;">
+        </div>
+
+        <div class="col-lg-7 col-md-7 col-12">
+            <div class="bg-white p-4 p-lg-5 rounded-3 border-0 position-relative"
+                style="box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                <div class="position-absolute top-0 start-0 h-100"
+                    style="width: 5px; background-color: #ff8c00; border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+                </div>
+
+                <h4 class="fw-bold mb-4" style="color: #ff8c00;">
+                    <i class="fa-solid fa-van-shuttle me-2"></i> THÔNG TIN LỊCH TRÌNH
+                </h4>
+
+                <div class="text-dark ps-2">
+                    <div class="d-flex mb-3 align-items-start">
+                        <div class="text-warning me-3 mt-1"><i class="fa-solid fa-ticket fs-5"></i></div>
+                        <div><strong class="text-uppercase">Giá vé:</strong> <span
+                                class="text-danger fw-bold fs-5">480.000đ</span> /vé/chiều.</div>
+                    </div>
+                    <div class="d-flex mb-3 align-items-start">
+                        <div class="text-warning me-3 mt-1"><i class="fa-solid fa-clock fs-5"></i></div>
+                        <div><strong>Di chuyển:</strong> Xe Limousine đón trả khách tận nơi. Tổng thời gian di chuyển
+                            khoảng 3 tiếng từ Hà Nội - Cát Bà.</div>
+                    </div>
+                    <div class="d-flex mb-3 align-items-start">
+                        <div class="text-warning me-3 mt-1"><i class="fa-solid fa-map-location-dot fs-5"></i></div>
+                        <div><strong>Điểm đón:</strong> Hỗ trợ đón trả khách linh hoạt quanh khu vực Phố cổ Hà Nội hoặc
+                            các điểm ven trung tâm.</div>
+                    </div>
+
+                    <div class="row mt-4 mb-3 g-3">
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded-3" style="background-color: #fff8f0; border: 1px solid #ffdeba;">
+                                <h6 class="fw-bold text-dark mb-2"><i
+                                        class="fa-solid fa-location-arrow text-primary me-2"></i>Giờ chạy từ Hà Nội</h6>
+                                <p class="mb-0 fw-bold" style="color: #ff8c00; font-size: 1.1rem;">07:30 - 10:30 - 13:30
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded-3" style="background-color: #fff8f0; border: 1px solid #ffdeba;">
+                                <h6 class="fw-bold text-dark mb-2"><i
+                                        class="fa-solid fa-location-arrow text-success me-2"></i>Giờ chạy từ Cát Bà</h6>
+                                <p class="mb-0 fw-bold" style="color: #ff8c00; font-size: 1.1rem;">08:30 - 12:30 - 15:30
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container bg-white p-4 p-md-5 rounded shadow-sm mb-5">
+
+        <div class="d-flex align-items-center mb-4">
+            <div style="width: 5px; height: 30px; background-color: #ff8c00; margin-right: 15px; border-radius: 5px;">
+            </div>
+            <h3 class="fw-bold mb-0 text-uppercase">Các Dịch vụ khác </h3>
+        </div>
+
+        <p class="text-muted mb-4"> Chúng tôi có các dịch vụ khác như : </p>
+        <p class="text-muted mb-4"> Tour cả ngày tàu sắt (48 chỗ) 650k/vé, cuối tuần phụ thu 50k </p>
+        <p class="text-muted mb-4">Tour cả ngày tàu 3 sao 850k/vé, cuối tuần phụ thu 100k </p>
+        <p class="text-muted mb-4">Tour cả ngày giá Du Thuyền 99 chỗ ( tàu có cầu trượt và phao bơi, bể sục) 1.000k/vé,
+            cuối tuần phụ thu 150k
+        </p>
+
+        <div id="hotelGalleryCarouselkhac" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="./img/tàu 3 sao/1.jpg" class="hotel-gallery-img" alt="Nhà hàng">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/tàu 3 sao/2.jpg" class="hotel-gallery-img" alt="Khuôn viên">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="./img/tàu 3 sao/3.jpg" class="hotel-gallery-img" alt="Tiện ích khác">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/tàu 3 sao/4.jpg" class="hotel-gallery-img" alt="Sảnh khách sạn">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item ">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="./img/tàu 3 sao/z7867426074037_89c32be965a011e14ec3612e186698c6.jpg"
+                                class="hotel-gallery-img" alt="Sảnh khách sạn">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/tàu 3 sao/z7867426121985_abe93f098fa8e1d3cc3570086857dd47.jpg"
+                                class="hotel-gallery-img" alt="Hồ bơi">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#hotelGalleryCarouselkhac"
+                data-bs-slide="prev" style="width: 5%;">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#hotelGalleryCarouselkhac"
+                data-bs-slide="next" style="width: 5%;">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container bg-white p-4 p-md-5 rounded shadow-sm mb-5">
+
+        <div class="d-flex align-items-center mb-4">
+            <div style="width: 5px; height: 30px; background-color: #ff8c00; margin-right: 15px; border-radius: 5px;">
+            </div>
+            <h3 class="fw-bold mb-0 text-uppercase">Cano</h3>
+        </div>
+
+        <p class="text-muted mb-4">Tour Cano chỉ với giá 500K/người</p>
+
+        <div id="hotelGalleryCarouselCano" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="./img/tour cano/z7867405148473_1878b827604a0f8f6a47d1c075a57431.jpg"
+                                class="hotel-gallery-img" alt="Nhà hàng">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/tour cano/z7867405149244_7d7edf1d2995b6b06bbea942c2adfa4a.jpg"
+                                class="hotel-gallery-img" alt="Khuôn viên">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="./img/tour cano/z7867405152753_4d76bcdcaa7ebb82b0f7517fe883b28f.jpg"
+                                class="hotel-gallery-img" alt="Tiện ích khác">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/tour cano/z7867405158176_fba3f791f22a787fed2c3bfbdaf7a621.jpg"
+                                class="hotel-gallery-img" alt="Sảnh khách sạn">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item active">
+                    <div class="row g-3">
+                        <div class="col-6">
+
+
+                            <img src="./img/tour cano/z7867405175753_333622b4db0ada7654697e8e89aed245.jpg"
+                                class="hotel-gallery-img" alt="Sảnh khách sạn">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/tour cano/z7867405176073_d5ecb41b59f2d429cc0fc14b37020f0c.jpg"
+                                class="hotel-gallery-img" alt="Hồ bơi">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="./img/tour cano/z7867405185263_bcab4a3cacb208f23f74c5f7438cc123.jpg"
+                                class="hotel-gallery-img" alt="Nhà hàng">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/tour cano/z7867405196023_cf0cf9f4af7bad223830a8f5074af854.jpg"
+                                class="hotel-gallery-img" alt="Khuôn viên">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="./img/tour cano/z7867405207720_f2864bdd5ef8791bcb2d1d54dc8ec7d2.jpg"
+                                class="hotel-gallery-img" alt="Nhà hàng">
+                        </div>
+                        <div class="col-6">
+                            <img src="./img/tour cano/z7867405175753_333622b4db0ada7654697e8e89aed245.jpg"
+                                class="hotel-gallery-img" alt="Khuôn viên">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#hotelGalleryCarouselCano"
+                data-bs-slide="prev" style="width: 5%;">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#hotelGalleryCarouselCano"
+                data-bs-slide="next" style="width: 5%;">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container bg-white p-4 p-md-5 rounded shadow-sm mb-5">
+        <div class="row align-items-center">
+
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="./img/Phòng tiêu chuẩn gia đình lớn/giadinh.jpg" class="w-100 rounded shadow-sm"
+                    alt="Phòng Tiêu Chuẩn Gia Đình Lớn" style="height: 350px; object-fit: cover;">
+            </div>
+
+            <div class="col-md-6 ps-md-4">
+                <h3 class="fw-bold mb-3 text-uppercase">Phòng Tiêu Chuẩn Gia Đình Lớn</h3>
+
+                <div class="d-flex flex-wrap gap-3 mb-4 text-muted small">
+                    <span><i class="fa-solid fa-ruler-combined text-warning"></i> 45 m²</span>
+
+                    <span><i class="fa-solid fa-ban-smoking text-danger"></i> Không hút thuốc</span>
+                    <span><i class="fa-solid fa-bed text-primary"></i> 2 Giường đôi lớn</span>
+                </div>
+
+                <p class="text-dark mb-4" style="line-height: 1.8;">
+                    Phòng tiêu chuẩn gia đình sở hữu không gian rộng rãi, ấm cúng với thiết kế ốp gỗ sang trọng.
+                    Được trang bị 2 giường đôi cỡ lớn êm ái, đây là lựa chọn hoàn hảo cho các gia đình hoặc nhóm
+                    bạn muốn tận hưởng trọn vẹn kỳ nghỉ bên nhau với đầy đủ tiện nghi hiện đại.
+                </p>
+
+                <a href="tieuchuangiadinh.html" class="btn text-white px-4 py-2 fw-bold"
+                    style="background-color: #ff8c00; border: none; border-radius: 8px;">
+                    Xem phòng <i class="fa-solid fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container bg-white p-4 p-md-5 rounded shadow-sm mb-5">
+        <div class="row align-items-center">
+
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="./img/Delexu có ban công/z7760883397378_dfd09098bd2546b723388114aed0c48a.jpg"
+                    class="w-100 rounded shadow-sm" alt="Phòng Tiêu Chuẩn Gia Đình Lớn"
+                    style="height: 350px; object-fit: cover;">
+            </div>
+
+            <div class="col-md-6 ps-md-4">
+                <h3 class="fw-bold mb-3 text-uppercase">PHÒNG DELUXE CÓ BAN CÔNG</h3>
+
+                <div class="d-flex flex-wrap gap-3 mb-4 text-muted small">
+                    <span><i class="fa-solid fa-ruler-combined text-warning"></i> 30 m²</span>
+                    <span><i class="fa-solid fa-mountain-sun text-success"></i> Nhìn ra view núi</span>
+                    <span><i class="fa-solid fa-ban-smoking text-danger"></i> Không hút thuốc</span>
+                    <span><i class="fa-solid fa-bed text-primary"></i> 2 Giường đôi lớn</span>
+                </div>
+
+                <p class="text-dark mb-4" style="line-height: 1.8;">
+                    Phòng deluxe có ban công có thể nhìn ra quang cảnh núi non tuyệt đẹp, sở hữu không gian rộng rãi, ấm
+                    cúng với thiết kế ốp gỗ sang trọng.
+                    Được trang bị 2 giường đôi cỡ lớn êm ái, đây là lựa chọn hoàn hảo cho các gia đình hoặc nhóm
+                    bạn muốn tận hưởng trọn vẹn kỳ nghỉ bên nhau với đầy đủ tiện nghi hiện đại.
+                </p>
+
+                <a href="deluxecobancong.html" class="btn text-white px-4 py-2 fw-bold"
+                    style="background-color: #ff8c00; border: none; border-radius: 8px;">
+                    Xem phòng <i class="fa-solid fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container bg-white p-4 p-md-5 rounded shadow-sm mb-5">
+        <div class="row align-items-center">
+
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="./img/Phòng Deluxe Gia đình/deluxegiadinh.jpg" class="w-100 rounded shadow-sm"
+                    alt="Phòng Tiêu Chuẩn Gia Đình Lớn" style="height: 350px; object-fit: cover;">
+            </div>
+
+            <div class="col-md-6 ps-md-4">
+                <h3 class="fw-bold mb-3 text-uppercase">PHÒNG DELUXE GIA ĐÌNH</h3>
+
+                <div class="d-flex flex-wrap gap-3 mb-4 text-muted small">
+                    <span><i class="fa-solid fa-ruler-combined text-warning"></i> 20 m²</span>
+
+                    <span><i class="fa-solid fa-ban-smoking text-danger"></i> Không hút thuốc</span>
+                    <span><i class="fa-solid fa-bed text-primary"></i> 2 Giường đôi lớn</span>
+                </div>
+
+                <p class="text-dark mb-4" style="line-height: 1.8;">
+                    Phòng deluxe gia đình sở hữu không gian ấm cúng với thiết kế ốp gỗ sang trọng.
+                    Được trang bị 2 giường đôi cỡ lớn êm ái, đây là lựa chọn hoàn hảo cho các gia đình hoặc nhóm
+                    bạn muốn tận hưởng trọn vẹn kỳ nghỉ bên nhau với đầy đủ tiện nghi hiện đại.
+                </p>
+
+                <a href="deluxegiadinh.html" class="btn text-white px-4 py-2 fw-bold"
+                    style="background-color: #ff8c00; border: none; border-radius: 8px;">
+                    Xem phòng <i class="fa-solid fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    </div>
+    </div>
+
+
+
+    <div class="floating-contact-buttons">
+        <div class="dropup" style="position: relative;">
+            <button class="floating-btn btn-phone border-0" type="button" onclick="togglePhoneMenu()"
+                title="Gọi Hotline">
+                <i class="fa-solid fa-phone"></i>
+            </button>
+            <ul id="phoneMenu" class="dropdown-menu dropdown-menu-end mb-2 shadow-lg border-0"
+                style="border-radius: 10px; min-width: 220px; position: absolute; bottom: 100%; right: 0;">
+                <li>
+                    <h6 class="dropdown-header text-center fw-bold">HOTLINE/ZALO</h6>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a class="dropdown-item py-2 fw-bold text-dark" href="tel:0392500321">
+                        <i class="fa-solid fa-phone-volume text-success me-2"></i> CALL 0392500321
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item py-2 fw-bold text-dark" href="tel:0984854456">
+                        <i class="fa-solid fa-phone-volume text-success me-2"></i> CALL 0984854456
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <a href="https://www.facebook.com/share/1CfdpHW5iH/?mibextid=wwXIfr" target="_blank" class="floating-btn btn-fb"
+            title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.tiktok.com/@catbaglowhotel?_r=1&_t=ZS-96XWm15Ba6v" target="_blank"
+            class="floating-btn btn-tiktok" title="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+    </div>
+
+    <button class="chat-toggle-btn" onclick="toggleChat()">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <span><i class="fa-solid fa-headset me-2"></i> Hỗ trợ trực tuyến</span>
+            <button class="close-chat" onclick="toggleChat()">×</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="message bot-message">Chào bạn! Bạn cần tư vấn thêm về Tour 2N1Đ phải không ạ?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" placeholder="Nhập tin nhắn..." id="chatInput">
+            <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+        <div class="container text-md-start px-4">
+            <div class="row text-start">
+                <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h5 class="text-uppercase fw-bold mb-4 text-warning">CÁT BÀ GLOW</h5>
+                    <p><i class="fa-solid fa-location-dot me-3"></i> Số 271 Núi Ngọc - Cát Bà - Hải Phòng</p>
+                    <p><i class="fa-solid fa-envelope me-3"></i> catbaglow.com</p>
+                    <p><i class="fa-solid fa-phone me-3"></i> Hotline: 0392 600 321 / 0984 854 456</p>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h5 class="text-uppercase fw-bold mb-4 text-warning">Liên kết</h5>
+                    <p><a href="#" class="text-white text-decoration-none">Về chúng tôi</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Phòng & Giá</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Quy định lưu trú</a></p>
+                </div>
+                <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
+                    <h5 class="text-uppercase fw-bold mb-4 text-warning">Vị trí</h5>
+                    <div class="rounded overflow-hidden">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3731.815340156947!2d107.0428989112933!3d20.717757980753063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a5d8f99e3a35d%3A0xc395f87b8d4ab6bc!2zMjcxIE7DumkgTmfhu41jLCBDw6F0IELDoCwgQ8OhdCBI4bqjaSwgSOG6o2kgUGjDsm5nLCBWaWV0bmFt!5e0!3m2!1sen!2s!4v1715930000000!5m2!1sen!2s"
+                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2026 Cát Bà Glow. Bản quyền đã được bảo hộ.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- KẾT NỐI FIREBASE -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDW6BXs3p5JLb60K1tqdigZ85xg08IfiTE",
+            authDomain: "catbaglowhotel-d83ad.firebaseapp.com",
+            projectId: "catbaglowhotel-d83ad",
+            storageBucket: "catbaglowhotel-d83ad.firebasestorage.app",
+            messagingSenderId: "1097745888230",
+            appId: "1:1097745888230:web:52263e505e4fb262401c27",
+            measurementId: "G-MN8QFP5GCK"
+        };
+
+        // Khởi tạo Firebase và Database
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+       
+        const q = query(collection(db, "messages"), orderBy("timestamp", "asc"));
+        
+        onSnapshot(q, (snapshot) => {
+            const chatBody = document.getElementById("chatBody");
+           
+            chatBody.innerHTML = '<div class="message bot-message">Chào bạn! Cát Bà Glow có thể giúp gì cho kỳ nghỉ của bạn?</div>';
+            
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                const msgDiv = document.createElement("div");
+                
+               
+                if (data.sender === "client") {
+                    msgDiv.className = "message user-message";
+                } else if (data.sender === "admin") {
+                    msgDiv.className = "message bot-message";
+                }
+                
+                msgDiv.textContent = data.text;
+                chatBody.appendChild(msgDiv);
+            });
+            
+           
+            chatBody.scrollTop = chatBody.scrollHeight;
+        });
+
+        
+        window.sendMessage = async function() {
+            const input = document.getElementById("chatInput");
+            const messageText = input.value.trim();
+            
+            if (messageText !== "") {
+                try {
+                   
+                    await addDoc(collection(db, "messages"), {
+                        text: messageText,
+                        sender: "client", 
+                        timestamp: serverTimestamp()
+                    });
+                    input.value = ""; 
+                } catch (error) {
+                    console.error("Lỗi khi gửi tin nhắn: ", error);
+                }
+            }
+        }
+
+       
+        document.getElementById("chatInput").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                window.sendMessage();
+            }
+        });
+
+       
+        window.toggleChat = function() {
+            const chatBox = document.getElementById("chatBox");
+            if (chatBox.style.display === "none" || chatBox.style.display === "") {
+                chatBox.style.display = "flex";
+            } else {
+                chatBox.style.display = "none";
+            }
+        }
+
+        window.togglePhoneMenu = function() {
+            const menu = document.getElementById("phoneMenu");
+            if (menu.classList.contains("show")) {
+                menu.classList.remove("show");
+            } else {
+                menu.classList.add("show");
+            }
+        }
+    </script>
+</body>
+
+</html>

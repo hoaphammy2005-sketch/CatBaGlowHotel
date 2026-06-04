@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - Cát Bà Glow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <style>
+        .register-btn { width: 100%; padding: 12px; background-color: #ff8c00; color: white; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        .register-btn:hover { background-color: #e07b00; }
+        .divider { text-align: center; margin: 15px 0; position: relative; }
+        .divider::before, .divider::after { content: ""; position: absolute; top: 50%; width: 40%; height: 1px; background: #ddd; }
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+        .divider span { color: #888; font-size: 14px; }
+        .google-btn { display: flex; align-items: center; justify-content: center; width: 100%; padding: 10px; background-color: white; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; font-weight: bold; color: #333; transition: 0.3s; }
+        .google-btn:hover { background-color: #f8f9fa; }
+    </style>
+</head>
+
+<body>
+    <div class="register-wrapper">
+        <div class="register-container">
+            <div class="info-section">
+                <div class="info-content">
+                    <div class="logo">CATBAGLOW HOTEL</div>
+                    <h1>Tạo tài khoản mới</h1>
+                    <p>Đăng ký để bắt đầu đặt phòng, trải nghiệm dịch vụ nghỉ dưỡng tuyệt vời và nhận những ưu đãi đặc biệt dành riêng cho thành viên của CatBaGlow Hotel.</p>
+                </div>
+                <div class="ocean-pattern"></div>
+            </div>
+
+            <div class="form-section">
+                <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-left"></i> Về trang chủ</a>
+                <h2>Đăng ký</h2>
+                <p class="subtitle">Tạo tài khoản mới để sử dụng đầy đủ các chức năng và quản lý đặt phòng của bạn.</p>
+
+                <form id="register-form">
+                    <div class="form-group">
+                        <label>Tên đăng nhập</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user input-icon"></i>
+                            <!-- Đã thêm id="registerUsername" -->
+                            <input type="text" id="registerUsername" placeholder="Nhập tên đăng nhập" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="registerEmail" placeholder="Nhập email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock input-icon"></i>
+                            <input type="password" id="registerPassword" placeholder="Nhập mật khẩu (Tối thiểu 6 ký tự)" required autocomplete="new-password">
+                        </div>
+                    </div>
+
+                    <button type="button" class="register-btn" onclick="window.handleRegister()">Đăng ký</button>
+                    
+                    <div class="divider"><span>Hoặc</span></div>
+
+                    <button type="button" class="google-btn" onclick="window.handleGoogleRegister()">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style="width: 20px; margin-right: 10px;">
+                        Đăng ký bằng Google
+                    </button>
+                </form>
+
+                <p class="login-link" style="margin-top: 20px; text-align: center;">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+        // Import thêm thư viện Firestore để lưu data
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDW6BXs3p5JLb60K1tqdigZ85xg08IfiTE",
+            authDomain: "catbaglowhotel-d83ad.firebaseapp.com",
+            projectId: "catbaglowhotel-d83ad",
+            storageBucket: "catbaglowhotel-d83ad.firebasestorage.app",
+            messagingSenderId: "1097745888230",
+            appId: "1:1097745888230:web:52263e505e4fb262401c27",
+            measurementId: "G-MN8QFP5GCK"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app); // Khởi tạo Database
+        const googleProvider = new GoogleAuthProvider();
+
+        // Xử lý Đăng ký bằng Email/Password
+        window.handleRegister = async function () {
+            const uname = document.getElementById("registerUsername").value;
+            const email = document.getElementById("registerEmail").value;
+            const password = document.getElementById("registerPassword").value;
+
+            if(!uname || !email || !password) {
+                alert("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+
+            try {
+                // 1. Tạo tài khoản
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // 2. Lưu thông tin vào Database theo yêu cầu của bạn
+                await setDoc(doc(db, "users", user.uid), {
+                    username: uname.toLowerCase(),
+                    email: user.email,
+                    role: "user",
+                    avatar: "",
+                    createdAt: new Date()
+                });
+
+                // 3. Gửi email xác minh
+                await sendEmailVerification(user);
+                
+                alert("Đăng ký thành công! Một đường link xác minh đã được gửi đến " + email + ". Vui lòng kiểm tra hộp thư (cả mục Spam) để kích hoạt tài khoản.");
+                auth.signOut();
+                window.location.href = "login.html";
+
+            } catch (error) {
+                console.error("Lỗi đăng ký: ", error);
+                alert("Đăng ký thất bại: " + error.message);
+            }
+        }
+
+        // Xử lý Đăng ký bằng Google
+        window.handleGoogleRegister = async function() {
+            try {
+                // 1. Đăng nhập bằng Google
+                const result = await signInWithPopup(auth, googleProvider);
+                const user = result.user;
+                
+                // Lấy tên từ Google, nếu không có thì gán mặc định
+                const uname = user.displayName || "user_" + Math.floor(Math.random() * 1000);
+
+                // 2. Lưu/Cập nhật thông tin vào Database
+                // Sử dụng merge: true để nếu khách dùng Google đăng nhập lại lần sau sẽ không bị ghi đè mất dữ liệu cũ
+                await setDoc(doc(db, "users", user.uid), {
+                    username: uname.toLowerCase(),
+                    email: user.email,
+                    role: "user",
+                    avatar: user.photoURL || "",
+                    createdAt: new Date()
+                }, { merge: true });
+
+                alert("Đăng nhập bằng Google thành công! Xin chào " + user.displayName);
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Lỗi Google Auth:", error);
+                alert("Lỗi khi kết nối với Google: " + error.message);
+            }
+        }
+    </script>
+</body>
+</html>

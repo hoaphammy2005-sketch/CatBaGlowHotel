@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Flora Hotel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+
+    <div class="register-wrapper">
+        <div class="register-container">
+            <div class="info-section">
+                <div class="info-content">
+                    <div class="logo">CATBAGLOW HOTEL</div>
+                    <h1>Chào mừng bạn quay lại</h1>
+                    <p>Đăng nhập để tiếp tục đặt phòng, xem các tour và trải nghiệm đầy phong cách của CatBaGlow Hotel.
+                    </p>
+                </div>
+                <div class="ocean-pattern"></div>
+            </div>
+
+            <div class="form-section">
+                <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-left"></i> Về trang chủ</a>
+                <h2>Đăng nhập</h2>
+                <p class="subtitle">Nhập tên đăng nhập và mật khẩu để tiếp tục.</p>
+
+               <form id="login-form">
+    <div class="form-group">
+        <label>Tên đăng nhập (Email)</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-user input-icon"></i>
+            <input type="email" id="loginEmail" placeholder="Nhập email của bạn" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Mật khẩu</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" required autocomplete="current-password">
+        </div>
+    </div>
+
+    <a href="#" style="font-size: 0.8rem; color: #457b9d; text-decoration: none; margin-bottom: 20px; display: block;">Quên mật khẩu?</a>
+
+    <button type="button" class="btn-submit" onclick="handleLogin()">Đăng nhập</button>
+</form>
+
+                <p class="login-link">Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script type="module">
+    // [Phần A]: Cấu hình Firebase (Lấy từ project của bạn)
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDW6BXs3p5JLb60K1tqdigZ85xg08IfiTE",
+        authDomain: "catbaglowhotel-d83ad.firebaseapp.com",
+        projectId: "catbaglowhotel-d83ad",
+        storageBucket: "catbaglowhotel-d83ad.firebasestorage.app",
+        messagingSenderId: "1097745888230",
+        appId: "1:1097745888230:web:52263e505e4fb262401c27",
+        measurementId: "G-MN8QFP5GCK"
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+
+    window.handleRegister = function () {
+        // ... (Đoạn code gửi email xác minh nằm ở đây) ...
+    }
+
+    window.handleLogin = function () {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+
+                // Đoạn kiểm tra email xác minh:
+                if (!user.emailVerified) {
+                    alert("Bạn chưa xác minh Email! Vui lòng kiểm tra hộp thư trước khi đăng nhập.");
+                    auth.signOut();
+                    return; // Dừng lại, không cho đăng nhập
+                }
+
+                alert("Đăng nhập thành công!");
+                 window.location.href = "index.html";
+                // Chuyển sang trang chủ hoặc trang quản trị
+            })
+            .catch((error) => {
+                alert("Sai email hoặc mật khẩu!");
+            });
+    }
+</script>
+
+
+
+</html>
