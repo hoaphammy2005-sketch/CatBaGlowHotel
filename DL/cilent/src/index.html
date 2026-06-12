@@ -18,108 +18,87 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent pt-3">
             <div class="container">
                 <a class="navbar-brand text-white fw-bold fs-3" href="index.html">CÁT BÀ GLOW</a>
+                
+                <!-- Nút bấm trên Mobile đã được trỏ đúng vào #navbarNav -->
                 <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#mainNav">
+                    data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="mainNav">
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto text-uppercase fw-bold" style="font-size: 0.9rem;">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                
+                <!-- Đã xóa bỏ thẻ div #mainNav thừa, chỉ giữ lại #navbarNav -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto text-uppercase fw-bold" style="font-size: 0.9rem;">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="roomDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                PHÒNG
+                            </a>
+                            <ul class="dropdown-menu shadow border-0 mt-2" aria-labelledby="roomDropdown"
+                                style="border-radius: 8px;">
+                                <li><a class="dropdown-item py-2 fw-bold text-dark"
+                                        href="deluxecobancong.html">DELUXE CÓ BAN CÔNG</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="deluxegiadinh.html">DELUXE
+                                        GIA ĐÌNH</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark"
+                                        href="tieuchuangiadinh.html">PHÒNG TIÊU CHUẨN GIA ĐÌNH LỚN</a></li>
+                            </ul>
+                        </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="tourDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    PHÒNG
-                                </a>
-                                <ul class="dropdown-menu shadow border-0 mt-2" aria-labelledby="tourDropdown"
-                                    style="border-radius: 8px;">
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark"
-                                            href="deluxecobancong.html">DELUXE CÓ BAN CÔNG</a></li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark" href="deluxegiadinh.html">DELUXE
-                                            GIA ĐÌNH</a></li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark"
-                                            href="tieuchuangiadinh.html">PHÒNG TIÊU CHUẨN GIA ĐÌNH LỚN</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="tourDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                TOUR
+                            </a>
+                            <ul class="dropdown-menu shadow border-0 mt-2" aria-labelledby="tourDropdown"
+                                style="border-radius: 8px;">
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="tausat.html">TOUR TÀU SẮT 48 CHỖ</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="tau3sao.html">TOUR TÀU 3 SAO</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="taucano.html">TOUR TÀU CANO</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="tauduthuyen.html">TOUR DU THUYỀN</a></li>
+                            </ul>
+                        </li>
 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="saleTourDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                TOUR ƯU ĐÃI
+                            </a>
+                            <ul class="dropdown-menu shadow border-0 mt-2" aria-labelledby="saleTourDropdown"
+                                style="border-radius: 8px;">
+                                <li><a class="dropdown-item py-2 fw-bold text-danger" href="2ngaycombo3.html">Tour 2N1Đ - Combo 3 Đặc Biệt (1.299K)</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="2ngaycombo2.html">Tour 2N1Đ - Combo 2 (999K)</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="2ngaycombo1.html">Tour 2N1Đ - Combo 1 (799K)</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-danger" href="3ngaycombo3.html">Tour 3N2Đ - Combo 3 Đặc Biệt (1.499K)</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="3ngaycombo2.html">Tour 3N2Đ - Combo 2 (1.199K)</a></li>
+                                <li><a class="dropdown-item py-2 fw-bold text-dark" href="3ngaycombo1.html">Tour 3N2Đ - Combo 1 (999K)</a></li>
+                            </ul>
+                        </li>
 
-                                </ul>
-                            </li>
+                        <li class="nav-item"><a class="nav-link" href="thuexe.html">THUÊ XE</a></li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="tourDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    TOUR
-                                </a>
-                                <ul class="dropdown-menu shadow border-0 mt-2" aria-labelledby="tourDropdown"
-                                    style="border-radius: 8px;">
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark" href="tausat.html">TOUR TÀU SẮT
-                                            48
-                                            CHỖ</a></li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark" href="tau3sao.html">TOUR TÀU 3
-                                            SAO</a></li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark" href="taucano.html">TOUR TÀU
-                                            CANO</a></li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark" href="tauduthuyen.html">TOUR DU
-                                            THUYỀN</a></li>
-                                </ul>
-
-                            </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="tourDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    TOUR ƯU ĐÃI
-                                </a>
-                                <ul class="dropdown-menu shadow border-0 mt-2" aria-labelledby="tourDropdown"
-                                    style="border-radius: 8px;">
-
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-danger" href="2ngaycombo3.html">Tour
-                                            2N1Đ - Combo 3 Đặc Biệt(1.299K)</a></li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark" href="2ngaycombo2.html">Tour
-                                            2N1Đ - Combo 2(999K)</a></li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark" href="2ngaycombo1.html">Tour
-                                            2N1Đ - Combo 1(799K)</a></li>
-
-
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-danger" href="3ngaycombo3.html">Tour
-                                            3N2Đ - Combo 3 Đặc Biệt(1.499K)</a></li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark" href="3ngaycombo2.html">Tour
-                                            3N2Đ - Combo 2(1.199K)</a></li>
-                                    <li><a class="dropdown-item py-2 fw-bold text-dark" href="3ngaycombo1.html">Tour
-                                            3N2Đ - Combo 1(999K)</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item"><a class="nav-link" href="thuexe.html">THUÊ XE</a></li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Tài khoản
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2"
-                                    aria-labelledby="accountDropdown" style="border-radius: 8px;">
-                                    <li>
-                                        <a class="dropdown-item py-2 fw-bold text-dark" href="login.html">
-                                            <i class="fa-solid fa-right-to-bracket text-primary me-2"></i> Đăng nhập
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item py-2 fw-bold text-dark" href="register.html">
-                                            <i class="fa-solid fa-user-plus text-success me-2"></i> Đăng ký
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Tài khoản
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2"
+                                aria-labelledby="accountDropdown" style="border-radius: 8px;">
+                                <li>
+                                    <a class="dropdown-item py-2 fw-bold text-dark" href="login.html">
+                                        <i class="fa-solid fa-right-to-bracket text-primary me-2"></i> Đăng nhập
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2 fw-bold text-dark" href="register.html">
+                                        <i class="fa-solid fa-user-plus text-success me-2"></i> Đăng ký
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
