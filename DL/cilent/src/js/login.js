@@ -6,7 +6,7 @@ const inpPwd = document.querySelector("#password");
 const loginForm = document.querySelector("#login-form");
 
 // Định nghĩa Email Admin của bạn ở đây
-const ADMIN_EMAIL = "admin@flora.com"; 
+const ADMIN_EMAIL = "hoaphammy2005@gmail.com"; 
 
 const handleLogin = function(event) {
     event.preventDefault();
